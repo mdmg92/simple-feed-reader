@@ -28,7 +28,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration) --logger trx --results-directory'
+    arguments: '--configuration $(buildConfiguration) --logger trx'
   displayName: 'Test'
 
 - task: PublishTestResults@2
