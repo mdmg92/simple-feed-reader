@@ -35,12 +35,13 @@ steps:
   condition:  succeededOrFailed()
   inputs:
     testResultsFormat: 'XUnit'
-    testResultsFiles: '**/*-*.trx'
+    testResultsFiles: '**/*.trx'
   displayName: 'Publish Test Results'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     publishWebProjects: true
   displayName: 'Publish'
 
