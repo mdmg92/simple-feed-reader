@@ -31,13 +31,6 @@ steps:
     arguments: '--configuration $(buildConfiguration) --logger trx'
   displayName: 'Test'
 
-- task: PublishTestResults@2
-  condition:  succeededOrFailed()
-  inputs:
-    testResultsFormat: 'XUnit'
-    testResultsFiles: '**/*.trx'
-  displayName: 'Publish Test Results'
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
